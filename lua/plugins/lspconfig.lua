@@ -179,8 +179,10 @@ return {
         cssls = {},
         tailwindcss = {},
         sqls = {},
-        clangd = {},
-        rust_analyzer = {},
+        -- rust_analyzer = { 'rs' },
+        clangd = {
+          filetypes = { 'c', 'h', 'cpp', 'hpp' },
+        },
         zls = {
           filetypes = { 'zig' },
         },
@@ -230,6 +232,7 @@ return {
         'goimports-reviser',
         'sqlfmt',
         'eslint_d',
+        'clang-format',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -243,6 +246,7 @@ return {
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
           end,
+          rust_analyzer = function() end,
         },
       }
     end,

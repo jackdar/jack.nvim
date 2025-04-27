@@ -47,6 +47,7 @@ return {
       php = { 'pint', 'php-cs-fixer' },
       blade = { 'blade-formatter' },
       rustfmt = { 'rust' },
+      clang_format = { 'c', 'cpp', 'h', 'hpp' },
     },
     -- Set default options
     default_format_opts = {

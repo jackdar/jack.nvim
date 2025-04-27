@@ -5,12 +5,6 @@ return {
     'tpope/vim-sleuth',
   },
   {
-    -- Show git status in the oil file explorer
-    'refractalize/oil-git-status.nvim',
-    dependencies = { 'stevearc/oil.nvim' },
-    config = true,
-  },
-  {
     -- Powerful Git integration for Vim
     'tpope/vim-fugitive',
   },
@@ -37,7 +31,14 @@ return {
     main = 'ibl',
     ---@module "ibl"
     ---@type ibl.config
-    opts = {},
+    opts = {
+      exclude = {
+        filetypes = {
+          'rust',
+          'c',
+        },
+      },
+    },
   },
   { -- Autopair brackets and parenthesis
     'windwp/nvim-autopairs',
@@ -56,5 +57,10 @@ return {
     config = function()
       require('nvim-ts-autotag').setup()
     end,
+  },
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^6', -- Recommended
+    lazy = false, -- This plugin is already lazy
   },
 }
